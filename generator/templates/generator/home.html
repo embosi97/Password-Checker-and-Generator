@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<style>
+  .sp2 {
+    visibility: hidden;
+  }
+
+  input[type='radio'] {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    outline: none;
+    border: 3px solid black;
+  }
+
+  input[type='radio']:before {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 60%;
+    margin: 20% auto;
+    border-radius: 50%;
+  }
+
+  input[type="radio"]:checked:before {
+    background: #be6400;
+
+  }
+
+  input[type="radio"]:checked {
+    border-color: #be6400;
+  }
+
+  input[type='checkbox'] {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    border: 3px solid black;
+  }
+
+  input[type='checkbox']:before {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 60%;
+    margin: 20% auto;
+  }
+
+  input[type="checkbox"]:checked:before {
+    background: #be6400;
+
+  }
+
+  input[type="checkbox"]:checked {
+    border-color: #be6400;
+  }
+
+  body {
+    background-image: url("https://wallpapershome.com/images/pages/pic_h/12176.jpg");
+    overflow-y: scroll;
+  }
+
+  .center {
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-creative-gold-flash-sheet-metal-background-gold-image_15891.jpg");
+    margin: auto;
+    width: 60%;
+    border: 6px #FFD700;
+    border-style: inset;
+    padding: 10px;
+  }
+
+  .txt-center {
+    font-family: 'Roboto';
+    text-align: center
+  }
+
+  .checkbox-number {
+    position: relative;
+    right: 34px;
+  }
+
+  input[type='submit'] {
+    -webkit-appearance: none;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+  }
+
+  .button {
+    font: bold 15px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #000000;
+    padding: 17px 22px 17px 22px;
+    border-top: 2px solid #CCCCCC;
+    border-right: 2px solid #333333;
+    border-bottom: 2px solid #333333;
+    border-left: 2px solid #CCCCCC;
+  }
+
+  .btn-fix {
+    text-align: center;
+  }
+
+  input[type=text] {
+    font: bold 17px 'Roboto';
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-top: 2px solid #CCCCCC;
+    border-right: 2px solid #333333;
+    border-bottom: 2px solid #333333;
+    border-left: 2px solid #CCCCCC;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+</style>
+
+<body>
+  <div class="center">
+    <div class="txt-center">
+
+      <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+
+      <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+      <h1> <i class="em em-closed_lock_with_key" aria-role="presentation" aria-label="CLOSED LOCK WITH KEY"></i>
+        <img src="https://i.imgur.com/f63RMIO.png" alt="Password" width="490">
+        <i class="em em-key" aria-role="presentation" aria-label="KEY"></i>
+      </h1>
+
+      <form action="{% url 'password' %}">
+
+        <label for="length"><b>Password Size: </b> </label>
+        <select name="length">
+          <option disabled="disabled">Weak</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option disabled="disabled">Strong</option>
+          <option value="16" selected="selected">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option disabled="disabled">Very Strong</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+          <option value="32">32</option>
+          <option value="33">33</option>
+        </select>
+
+
+        <br><br>
+        <br>
+        <input type="radio" name="case" value="lowercase" checked="checked">
+        <label for="lowercase"><b>All Lowercase</b></label>
+        <input type="radio" name="case" value="uppercase">
+        <label for="uppercase"><b>All Uppercase</b></label>
+        <input type="radio" name="case" value="both">
+        <label for="both"><b>Both</b></label> <br>
+        <br><br>
+        <div class="checkbox-number">
+          <input type="checkbox" id="NumbersCheck" name="numbers" checked="checked" onclick="makeVisible('sp1','NumbersCheck')"> <b> Numbers </b>
+          <input type="radio" class="sp1" name="numberoption" value="scattered" checked="checked">
+          <label for="lowercase" class="sp1"><b>Scattered</b></label>
+          <input type="radio" class="sp1" name="numberoption" value="back">
+          <label for="uppercase" class="sp1"><b>Back</b></label>
+        </div>
+        <br>
+        <br>
+        <input type="checkbox" id="SpecialCheck" name="specialchar" onclick="makeVisible('sp2','SpecialCheck')"> <b>Special Characters</b>
+
+        <input type="radio" class="sp2" name="specialoption" value="scattered" checked="checked">
+        <label for="lowercase" class="sp2"><b>Scattered</b></label>
+        <input type="radio" class="sp2" name="specialoption" value="back">
+        <label for="uppercase" class="sp2"><b>Back</b></label>
+
+        <br><br><br>
+
+        <input type="submit" value="Generate">
+      </form>
+
+    </div>
+  </div>
+</body>
+<div class="btn-fix">
+  <br>
+  <img src="https://i.imgur.com/LOM0hHi.png" alt="Password" width="110">
+  <br>
+  <div class="center">
+    <div class="txt-center">
+
+      <img src="https://i.imgur.com/mXD9r4f.png" alt="Password" width="430">
+
+      <form action="{% url 'checked' %}">
+        <input type="text" id="checked" name="checked" required minlength="6" maxlength="25" size="50" placeholder="Your Password...">
+        <br> <br>
+        <input type="submit" value="Check It!"> <i class="em em-mag_right" aria-role="presentation" aria-label="RIGHT-POINTING MAGNIFYING GLASS"></i>
+      </form>
+    </div>
+  </div>
+
+</html>
+
+
+<script>
+  function makeVisible(cname, cbox) {
+    var checkbox = document.getElementById(cbox);
+    var x = document.getElementsByClassName(cname);
+    switch (checkbox.checked) {
+      case true:
+        for (var i = 0; i < x.length; i++) {
+          x[i].style.visibility = 'visible';
+        }
+        break;
+      case false:
+        for (var i = 0; i < x.length; i++) {
+          x[i].style.visibility = 'hidden';
+        }
+        break;
+    }
+  }
+</script>

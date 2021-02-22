@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<style>
+  body {
+    background-image: url("https://wallpapershome.com/images/pages/pic_h/12176.jpg");
+  }
+
+  .img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .center {
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-creative-gold-flash-sheet-metal-background-gold-image_15891.jpg");
+    background-size: auto;
+    margin: auto;
+    width: 60%;
+    border: 6px #FFD700;
+    border-style: inset;
+    padding: 10px;
+  }
+
+  .txt-center {
+    font-size: 45px;
+    font-family: 'Roboto';
+    text-align: center
+  }
+
+  .txt-center-btn {
+    text-align: center
+  }
+
+  .button {
+    font: bold 12px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #000000;
+    padding: 9px 12px 9px 12px;
+    border-top: 2px solid #CCCCCC;
+    border-right: 2px solid #333333;
+    border-bottom: 2px solid #333333;
+    border-left: 2px solid #CCCCCC;
+  }
+  .count {
+    font: bold 64px "Arial";
+  }
+
+  .warning {
+    font: 23px "Arial"
+  }
+
+</style>
+
+<script>
+  window.onload = function() {
+    if({{checkedpassword}} == 0){
+    document.getElementById("message").innerHTML = "You're in the clear!";
+  }
+  else if ({{checkedpassword}} > 0) {
+    document.getElementById("message").innerHTML = "Please consider changing your password.";
+  }
+  };
+</script>
+
+
+<body>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <div class="center">
+    <div class="txt-center">
+      <p> <b> Your Password Has Been Cracked <div class = "count"> {{checkedpassword}} </div> <br> Times! </b> </p>
+      <div class = "warning"> <p id="message"></p> </div>
+    </div>
+  </div>
+  <br>
+  <div class="txt-center-btn">
+    <a href="{% url 'home' %}" class="button"> Go Back </a>
+  </div>
+</body>
+
+</html>
